@@ -1,7 +1,7 @@
 import reflex as rx
 from rxconfig import config
 from Wearly.Backend.login import Login
-
+from Wearly.home_page_structure import main_content
 
 class State(rx.State):
     """The app state."""
@@ -13,9 +13,9 @@ def about_page() -> rx.Component:
         rx.hstack(
             rx.heading("Wearly", size="6"),
             rx.spacer(),
-            rx.button(
-                "Login",
-                on_click=rx.redirect("/login"),
+            rx.link(
+                rx.button("Login"),
+                href="/login",
             ),
             width="100%",
             align="center",
@@ -46,19 +46,17 @@ def about_page() -> rx.Component:
             min_height="70vh",
         ),
         width="100%",
-    )
-     
+    )     
 
 
 @rx.page(route="/home",on_load=Login.check_login)
 def home_page() -> rx.Component:
     return rx.cond(
         Login.is_logged_in,
-        rx.vstack(
-            rx.heading("Welcome to Wearly!"),
-            rx.button("Logout", on_click=Login.execute_logout),
+        main_content(),
+        rx.text("Please log in to continue."),
         )
-    ) 
+
 
 @rx.page(route="/login")
 def login_page() -> rx.Component:
