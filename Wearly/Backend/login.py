@@ -25,7 +25,7 @@ class Login(rx.State):
         self.email = ""
         self.password = ""
         self.is_logged_in = False
-        return rx.redirect("/login")
+        return rx.redirect("/")
 
     def check_login(self):
         if not self.is_logged_in:

@@ -7,6 +7,49 @@ class State(rx.State):
     """The app state."""
 
 
+def about_page() -> rx.Component:
+    return rx.box(
+        # Top navigation
+        rx.hstack(
+            rx.heading("Wearly", size="6"),
+            rx.spacer(),
+            rx.button(
+                "Login",
+                on_click=rx.redirect("/login"),
+            ),
+            width="100%",
+            align="center",
+            padding="1.5em 2em",
+        ),
+
+        # About content
+        rx.center(
+            rx.vstack(
+                rx.image(
+                        src="/Logo.png",
+                        alt="Wearly logo",
+                        width="10.0em",
+                        height="auto",
+                        border_radius="25%",
+                ),
+                rx.heading("Dress with confidence.", size="8"),
+                rx.text(
+                    "Wearly helps you discover colors, create outfits, "
+                    "and make everyday fashion decisions easier."
+                ),
+                spacing="4",
+                align="center",
+                text_align="center",
+                max_width="600px",
+            ),
+            width="100%",
+            min_height="70vh",
+        ),
+        width="100%",
+    )
+     
+
+
 @rx.page(route="/home",on_load=Login.check_login)
 def home_page() -> rx.Component:
     return rx.cond(
@@ -17,7 +60,7 @@ def home_page() -> rx.Component:
         )
     ) 
 
-
+@rx.page(route="/login")
 def login_page() -> rx.Component:
     return rx.center(
         rx.card(
@@ -90,4 +133,4 @@ def login_page() -> rx.Component:
 
 app = rx.App()
 
-app.add_page(login_page, route="/login")
+app.add_page(about_page, route="/")
