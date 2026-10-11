@@ -1,5 +1,3 @@
-Wearly
-
 <p align="center">
   <img src="assets/Logo.png" alt="Wearly Logo" width="180"/>
 </p>
