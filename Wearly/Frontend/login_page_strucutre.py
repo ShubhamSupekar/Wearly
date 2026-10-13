@@ -17,14 +17,14 @@ def login_page_main_content() -> rx.Component:
                         rx.image(
                             src="/Logo.png",
                             alt="Wearly logo",
-                            width="6.0em",
+                            width="8.0em",
                             height="auto",
                             border_radius="25%",
                             border="3px solid",
                         ),
                         rx.heading(
                             "Sign in to your account",
-                            size="6",
+                            size="5",
                             as_="h2",
                             text_align="center",
                             width="100%",
@@ -76,6 +76,6 @@ def login_page_main_content() -> rx.Component:
                 width="100%",
             ),
             width="100%",
-            height="70vh",
+            height="60vh",
         ),
     )

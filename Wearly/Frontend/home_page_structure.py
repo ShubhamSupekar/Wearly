@@ -1,5 +1,6 @@
 import reflex as rx
 from Wearly.Backend.login import Login
+from Wearly.Frontend.Dark_n_Light_Mode import dark_light_theme_toggle
 
 
 class SidebarState(rx.State):
@@ -11,7 +12,8 @@ class SidebarState(rx.State):
 
 
 def home_page_main_content() -> rx.Component:
-    return rx.vstack(        
+    return rx.vstack(    
+        rx.divider(),    
         sidebar_items(),
         width="100%",
     )
@@ -79,6 +81,7 @@ def sidebar_items() -> rx.Component:
         ),
 
         # Main navigation
+        dark_light_theme_toggle(),
         rx.vstack(
             sidebar_item("My Wardrobe", "shirt", "/wardrobe"),
             sidebar_item("Color Analysis", "palette", "/color-analysis"),

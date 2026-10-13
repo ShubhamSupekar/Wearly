@@ -25,7 +25,6 @@ def about_page_main_Content():
                             width="10.0em",
                             height="auto",
                             border_radius="25%",
-                            border="3px solid",
                     ),
                     rx.heading("Dress with confidence.", size="8"),
                     rx.text(
@@ -38,7 +37,7 @@ def about_page_main_Content():
                     max_width="600px",
                 ),
                 width="100%",
-                min_height="70vh",
+                min_height="60vh",
             ),
             width="100%",
         )     
