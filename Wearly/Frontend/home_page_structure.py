@@ -11,24 +11,7 @@ class SidebarState(rx.State):
 
 
 def home_page_main_content() -> rx.Component:
-    return rx.vstack(
-        rx.hstack(
-            rx.heading("Welcome to Wearly!"),
-            rx.spacer(),
-            rx.image(
-                src="/Logo.png",
-                alt="Wearly logo",
-                width="3em",
-                height="auto",
-            ),
-            rx.spacer(),
-            rx.button(
-                "Logout",
-                on_click=Login.execute_logout,
-            ),
-            width="100%",
-            align="center",
-        ),
+    return rx.vstack(        
         sidebar_items(),
         width="100%",
     )
@@ -110,6 +93,20 @@ def sidebar_items() -> rx.Component:
         rx.spacer(),
 
         profile_n_settings(),
+        
+        rx.button(
+            rx.icon("log-out", size=20),
+            rx.cond(
+                SidebarState.collapsed,
+                rx.fragment(),
+                rx.text("Logout"),
+            ),
+            on_click=Login.execute_logout,
+            variant="soft",
+            color_scheme="red",
+            width="100%",
+            justify="center",
+        ),
 
         width=rx.cond(
             SidebarState.collapsed,

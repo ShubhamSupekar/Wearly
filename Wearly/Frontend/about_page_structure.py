@@ -1,12 +1,13 @@
 import reflex as rx
+from Wearly.Frontend.Dark_n_Light_Mode import dark_light_theme_toggle
 
 
 def about_page_main_Content():
     return rx.box(
             # Top navigation
             rx.hstack(
-                rx.heading("Wearly", size="6"),
-                rx.spacer(),
+                dark_light_theme_toggle(),
+                rx.spacer(), 
                 rx.link(
                     rx.button("Login"),
                     href="/login",
@@ -16,7 +17,6 @@ def about_page_main_Content():
                 padding="1.5em 2em",
             ),
 
-            # About content
             rx.center(
                 rx.vstack(
                     rx.image(
@@ -25,6 +25,7 @@ def about_page_main_Content():
                             width="10.0em",
                             height="auto",
                             border_radius="25%",
+                            border="3px solid",
                     ),
                     rx.heading("Dress with confidence.", size="8"),
                     rx.text(
