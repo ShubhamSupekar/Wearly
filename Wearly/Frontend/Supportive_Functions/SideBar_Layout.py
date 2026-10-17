@@ -1,6 +1,6 @@
 import reflex as rx
+from Wearly.Frontend.Supportive_Functions.Dark_n_Light_Mode import dark_light_theme_toggle
 from Wearly.Backend.login import Login
-from Wearly.Frontend.Dark_n_Light_Mode import dark_light_theme_toggle
 
 
 class SidebarState(rx.State):
@@ -8,15 +8,6 @@ class SidebarState(rx.State):
 
     def toggle_sidebar(self):
         self.collapsed = not self.collapsed
-
-
-
-def home_page_main_content() -> rx.Component:
-    return rx.vstack(    
-        rx.divider(),    
-        sidebar_items("outfit-recommendations"),
-        width="100%",
-    )
 
 
 def sidebar_item(
@@ -138,15 +129,29 @@ def sidebar_items(active_item: str) -> rx.Component:
             justify="center",
         ),
 
+        position="fixed",
+        top="25px",
+        left="0px",
         width=rx.cond(
             SidebarState.collapsed,
             "65px",
             "250px",
         ),
-        height="calc(100vh - 100px)",
+        height="calc(100dvh - 100px)",
+        max_height="calc(100dvh - 100px)",
         padding="0.75rem",
-        border="1px solid #E5E7EB",
+        border=rx.color_mode_cond(
+            light="1px solid rgba(156, 163, 175, 0.9)",
+            dark="1px solid rgba(75, 85, 99, 0.8)",
+        ),
         border_radius="12px",
+        background=rx.color_mode_cond(
+            light="rgba(249, 250, 251, 0.98)",
+            dark="rgba(31, 41, 55, 0.98)",
+        ),
+        box_shadow="0 4px 16px rgba(0, 0, 0, 0.12)",
+        z_index="1000",
+        overflow_y="auto",
         spacing="3",
         align="stretch",
         flex_shrink="0",

@@ -1,5 +1,5 @@
 import reflex as rx
-from Wearly.Frontend.home_page_structure import sidebar_items
+from Wearly.Frontend.Page_Strucutres.home_page_structure import sidebar_items
 
 
 def discover_n_shop_page_main_content() -> rx.Component:
@@ -76,6 +76,7 @@ def discover_n_shop_page_main_content() -> rx.Component:
                 ),
                 width="100%",
                 min_height="85vh",
+                margin_left="65px"
             ),
             width="100%",
             align="start",

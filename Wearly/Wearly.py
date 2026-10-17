@@ -1,12 +1,13 @@
 import reflex as rx
-from Wearly.Frontend import about_page_structure
+from Wearly.Frontend.Page_Strucutres import about_page_structure
 from rxconfig import config
 from Wearly.Backend.login import Login
-from Wearly.Frontend.home_page_structure import home_page_main_content
-from Wearly.Frontend.about_page_structure import about_page_main_Content
-from Wearly.Frontend.login_page_strucutre import login_page_main_content
-from Wearly.Frontend.profile_page_structure import profile_page_main_content
-from Wearly.Frontend.discover_n_shop_page_structure import discover_n_shop_page_main_content
+from Wearly.Frontend.Page_Strucutres.home_page_structure import home_page_main_content
+from Wearly.Frontend.Page_Strucutres.about_page_structure import about_page_main_Content
+from Wearly.Frontend.Page_Strucutres.login_page_strucutre import login_page_main_content
+from Wearly.Frontend.Page_Strucutres.profile_page_structure import profile_page_main_content
+from Wearly.Frontend.Page_Strucutres.discover_n_shop_page_structure import discover_n_shop_page_main_content
+from Wearly.Frontend.Supportive_Functions.Responsive_Layout import responsive_page
 
 
 class State(rx.State):
@@ -14,14 +15,14 @@ class State(rx.State):
 
 
 def about_page() -> rx.Component:
-    return about_page_main_Content()
+    return responsive_page(about_page_main_Content())
 
 
 @rx.page(route="/home",on_load=Login.check_login)
 def home_page() -> rx.Component:
     return rx.cond(
         Login.is_logged_in,
-        home_page_main_content(),
+        responsive_page(home_page_main_content()),
         rx.text("Please log in to continue."),
         )
 
@@ -30,7 +31,7 @@ def home_page() -> rx.Component:
 def profile_page() -> rx.Component:
     return rx.cond(
             Login.is_logged_in,
-            profile_page_main_content(),
+            responsive_page(profile_page_main_content()),
             rx.text("Please log in to continue."),
             )
 
@@ -39,16 +40,30 @@ def profile_page() -> rx.Component:
 def shop_page() -> rx.Component:
     return rx.cond(
             Login.is_logged_in,
-            discover_n_shop_page_main_content(),
+            responsive_page(discover_n_shop_page_main_content()),
             rx.text("Please log in to continue."),
             )
 
 
 @rx.page(route="/login")
 def login_page() -> rx.Component:
-    return login_page_main_content()
+    return responsive_page(login_page_main_content())
 
 
-app = rx.App()
+app = rx.App(    
+    style={
+        "*": {
+            "box_sizing": "border-box",
+        },
+        "html, body": {
+            "margin": "0",
+            "padding": "0",
+            "width": "100%",
+            "min_height": "100%",
+        },
+        "body": {
+            "overflow_x": "hidden",
+        },
+    })
 
 app.add_page(about_page, route="/")

@@ -1,5 +1,5 @@
 import reflex as rx
-from Wearly.Frontend.home_page_structure import sidebar_items
+from Wearly.Frontend.Page_Strucutres.home_page_structure import sidebar_items
 
 
 def profile_page_main_content() -> rx.Component:

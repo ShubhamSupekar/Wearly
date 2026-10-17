@@ -1,5 +1,5 @@
 import reflex as rx
-from Wearly.Frontend.Dark_n_Light_Mode import dark_light_theme_toggle
+from Wearly.Frontend.Supportive_Functions.Dark_n_Light_Mode import dark_light_theme_toggle
 
 
 def about_page_main_Content():

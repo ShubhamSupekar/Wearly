@@ -1,6 +1,6 @@
 import reflex as rx
 from Wearly.Backend.login import Login
-from Wearly.Frontend.Dark_n_Light_Mode import dark_light_theme_toggle
+from Wearly.Frontend.Supportive_Functions.Dark_n_Light_Mode import dark_light_theme_toggle
 
 
 def login_page_main_content() -> rx.Component:
