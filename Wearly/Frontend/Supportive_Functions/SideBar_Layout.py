@@ -21,11 +21,15 @@ def sidebar_item(
             rx.icon(
                 icon,
                 size=20,
+                flex_shrink="0",
                 color=rx.cond(
                     active,
                     rx.color("accent", 11),
                     "currentColor",
                 ),
+                _hover={
+                    "transform": "scale(1.12)",
+                },
             ),
             rx.cond(
                 SidebarState.collapsed,
@@ -63,6 +67,8 @@ def sidebar_item(
             ),
             _hover={
                 "background": rx.color("accent", 3),
+                "transform": "translateX(4px)",
+                "box_shadow": "0 3px 10px rgba(0, 0, 0, 0.06)",
             },
         ),
         href=href,
@@ -94,6 +100,7 @@ def sidebar_items(active_item: str) -> rx.Component:
 
         # Main navigation
         dark_light_theme_toggle(),
+        rx.divider(),
         rx.vstack(
             sidebar_item("Outfit Recommendations", "sparkles", "/home", active=active_item == "outfit-recommendations"),
             sidebar_item("Color Analysis", "palette", "/color-analysis", active=active_item == "color-analysis"),
@@ -127,6 +134,11 @@ def sidebar_items(active_item: str) -> rx.Component:
             color_scheme="red",
             width="100%",
             justify="center",
+            transition="all 0.2s ease-in-out",
+            _hover={
+                "transform": "translateY(-2px)",
+                "box_shadow": "0 4px 12px rgba(239, 68, 68, 0.18)",
+            },
         ),
 
         position="fixed",

@@ -12,4 +12,5 @@ def dark_light_theme_toggle() -> rx.Component:
         variant="soft",
         size="3",
         aria_label="Toggle dark mode",
+        transition="all 0.25s ease-in-out",
     )

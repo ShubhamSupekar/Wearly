@@ -66,4 +66,6 @@ app = rx.App(
         },
     })
 
+
 app.add_page(about_page, route="/")
+

@@ -29,4 +29,4 @@ class Login(rx.State):
 
     def check_login(self):
         if not self.is_logged_in:
-            return rx.redirect("/login")
+            return rx.redirect("/")
