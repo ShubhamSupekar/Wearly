@@ -102,7 +102,7 @@ def profile_page_main_content() -> rx.Component:
                 rx.heading(
                     "My Profile",
                     size="6",
-                    width="100%",
+                    width="90%",
                 ),
 
                 rx.text(
@@ -111,7 +111,7 @@ def profile_page_main_content() -> rx.Component:
                     "your skin tone.",
                     size="2",
                     color="gray",
-                    width="100%",
+                    width="90%",
                 ),
 
                 rx.callout(
@@ -121,7 +121,7 @@ def profile_page_main_content() -> rx.Component:
                     icon="info",
                     color_scheme="blue",
                     size="2",
-                    width="100%",
+                    width="90%",
                 ),
 
                 # Compact upload cards
@@ -144,7 +144,7 @@ def profile_page_main_content() -> rx.Component:
                         "even, neutral lighting.",
                         "good_light_photo",
                     ),
-                    width="100%",
+                    width="90%",
                     spacing="2",
                 ),
 
@@ -153,17 +153,16 @@ def profile_page_main_content() -> rx.Component:
                     "for processing when you submit them.",
                     size="1",
                     color="gray",
-                    width="100%",
+                    width="90%",
                 ),
 
                 rx.button(
                     "Submit Photos",
-                    width="100%",
+                    width="90%",
                     size="3",
                 ),
 
-                width="100%",
-                max_width="90%",
+                width="90%",
                 min_width="0",
                 flex="1",
                 align="start",
