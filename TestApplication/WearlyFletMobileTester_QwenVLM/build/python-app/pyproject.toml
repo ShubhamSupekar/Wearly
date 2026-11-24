@@ -1,0 +1,19 @@
+[project]
+name = "wearly-mobile-model-tester"
+version = "0.2.0"
+description = "Flet app for downloading and testing Qwen2-VL locally."
+requires-python = ">=3.10"
+dependencies = [
+  "flet>=1.1.3",
+  "requests>=2.31.0",
+  "litert-lm-api==0.20.0",
+]
+
+[tool.flet]
+org = "com.wearly"
+product = "Wearly Mobile Model Tester"
+company = "Wearly"
+copyright = "Copyright (C) 2026 Wearly"
+
+[tool.flet.android]
+min_sdk_version = 24
